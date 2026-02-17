@@ -3,8 +3,6 @@ const getTrendingProducts = () => {
         .then(res => res.json())
         .then(data => {
             const trendingProductsContainer = document.getElementById("trending-products");
-            const allProductsContainer = document.getElementById('all-products-container');
-            displayProducts(data, allProductsContainer);
             displayProducts(data.sort((a, b) => b.count - a.count).slice(0, 3), trendingProductsContainer);
         })
         .catch(err => console.log(err));
